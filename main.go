@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	var arrays = []int{1, 4, 5, 6, 8, 2, 3, 7}
+	var arrays = []int{1, 4, 5, 6, 8, 2}
 	var maxRow = arrays[0]
 	var rows, cols int
 	//cari nilai tertinggi baris
@@ -24,15 +24,17 @@ func main() {
 	fmt.Print("\n\n\n")
 	//panjang elemen
 	totalElemen := len(arrays) - 1
-
+	proses := 1
 	for i := 0; i <= totalElemen; i++ {
 		for j := i - 1; j >= 0; j-- {
 			if arrays[j+1] < arrays[j] {
 				temp := arrays[j]
 				arrays[j] = arrays[j+1]
 				arrays[j+1] = temp
+				fmt.Printf("Proses ke %d insertion sort \n\n", proses)
 				barchart(maxRow, arrays)
 				fmt.Print("\n\n\n")
+				proses++
 			} else {
 				break
 			}
